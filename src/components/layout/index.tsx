@@ -61,7 +61,7 @@ const StickyButton = ({ isOpen, onClick }: StickyButtonProps) => {
 
   return <button
     onClick={onClick}
-    className="fixed top-2 right-2 lg:top-8 lg:right-8 z-50 w-12 h-12 flex items-center justify-center overflow-hidden rounded-lg hover:bg-yellow-300 text-yellow-300 hover:text-black
+    className="fixed top-2 right-2 lg:top-8 lg:right-8 z-50 w-12 h-12 flex items-center justify-center overflow-hidden rounded-lg bg-yellow-300 text-black
   transition-colors duration-200 cursor-pointer"
   >
     <AnimatePresence mode="popLayout" initial={false}>
@@ -84,8 +84,7 @@ const StickyButton = ({ isOpen, onClick }: StickyButtonProps) => {
           exit={{ x: 40, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="absolute text-2xl font-light"
-        >
-          x
+        >x
         </motion.span>
       )}
     </AnimatePresence>

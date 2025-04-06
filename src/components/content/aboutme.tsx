@@ -1,23 +1,22 @@
 "use client"
 import Section from "@/components/content/section";
 import { FaTree } from "react-icons/fa6";
-import { MdSunny } from "react-icons/md";
 import { motion } from "framer-motion"
 
 export default function AboutMe() {
-  return <Section id="about" className="bg-blue-400">
+  return <Section id="about" bgImage="/main-bg.jpg">
     {({ inView }) => <div>
       <motion.div
         initial={{ y: '-100%', opacity: 1 }}
         animate={inView ? { y: '20%', opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="absolute text-yellow-300 left-[5%]">
-        <MdSunny className="w-36 h-36" />
+        className="absolute left-[5%]">
+          <Sun/>
       </motion.div>
-      <div className="absolute bottom-0 w-full h-48 bg-emerald-600">
+      {/* <div className="absolute bottom-0 w-full h-48 bg-emerald-600">
         <FaTree className="h-48 w-48 text-green-950 absolute right-4 lg:right-28 -top-32" />
         <FaTree className="h-32 w-32 text-green-700 absolute right-8 lg:right-56 -top-12" />
-      </div>
+      </div> */}
       <div className="relative w-full h-dvh flex flex-col justify-center items-center z-10">
         <div className="lg:grid lg:grid-cols-[auto_1fr] w-[80%] gap-8">
           <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
@@ -39,4 +38,41 @@ export default function AboutMe() {
     </div>
     }
   </Section>
+}
+
+
+function Sun() {
+  return (
+    <div className="relative">
+      <motion.div
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.8, 1, 0.8]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="absolute w-36 h-36 rounded-full bg-yellow-20000/50 blur-3xl"
+      />
+      <motion.div
+        animate={{
+          rotate: 360,
+          boxShadow: [
+            '0 0 60px 15px rgba(255, 200, 0, 0.7)',
+            '0 0 80px 30px rgba(255, 150, 0, 0.6)',
+            '0 0 60px 15px rgba(255, 200, 0, 0.7)'
+          ]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="relative w-28 h-28 rounded-full bg-gradient-to-br from-yellow-100 to-yellow-300 shadow-xl"
+      >
+      </motion.div>
+    </div>
+  )
 }
