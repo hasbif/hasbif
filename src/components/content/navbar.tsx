@@ -34,7 +34,7 @@ const Navbar = ({ onClose }: NavbarProps) => {
               Muhammad Hasbi Fauzi
             </h3>
             <h1 className='text-3xl lg:text-6xl'>
-              Front End Developer
+              Front-End Developer
             </h1>
             <h5 className='text-xl lg:text-2xl flex gap-3 items-center'>
               <FaLaptopCode className='text-2xl lg:text-3xl' /> {dayjs().diff("2020-8-1", 'y')}+ years

@@ -28,6 +28,7 @@ export default function RootLayout({
       <head>
       <link rel="preload" href="/treasure-bg.jpg" as="image" />
       <link rel="preload" href="/main-bg.jpg" as="image" />
+      <link rel="preload" href="/cyber-bg.jpg" as="image" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
