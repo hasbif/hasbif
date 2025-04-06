@@ -62,12 +62,12 @@ const Navbar = ({ onClose }: NavbarProps) => {
               <SkillPill>
                 <SiCss3 /> CSS
               </SkillPill>
-              <SkillPill>
+              {/* <SkillPill>
                 <SiGraphql /> Graphql
               </SkillPill>
               <SkillPill>
                 <SiNodedotjs /> Node.js
-              </SkillPill>
+              </SkillPill> */}
             </div>
           </div>
           <div className='flex text-4xl gap-2'>
@@ -145,7 +145,7 @@ function ShinyImage({ src, alt }: { src: string; alt: string }) {
   }, [controls])
 
   return (
-    <div className="relative overflow-hidden border-8 rounded-4xl border-amber-600 inline-block">
+    <div className="relative overflow-hidden border-8 rounded-4xl border-amber-600 inline-block max-w-[30dvh] lg:max-w-none">
       <img
         src={src}
         alt={alt}

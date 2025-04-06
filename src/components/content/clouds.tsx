@@ -1,15 +1,6 @@
-'use client'
-
-import { motion, useMotionValue, animate } from 'framer-motion'
-import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { IoMdCloud } from 'react-icons/io'
 
-const CloudIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 100 60" fill="white">
-    <path d="M85,30c0,0,11,0,11,10s-8,10-8,10H15c0,0-11,0-11-10s8-10,8-10c0,0-3-12,7-12s10,12,10,12c0,0-2-15,10-15
-    s12,15,12,15c0,0-1-10,8-10S85,30,85,30z"/>
-  </svg>
-)
 
 export default function AnimatedClouds() {
   const clouds = [

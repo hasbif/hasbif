@@ -1,11 +1,13 @@
 import AboutMe from "@/components/content/aboutme";
 import Section from "@/components/content/section";
+import Skills from "@/components/content/skills";
 import Image from "next/image";
 
 export default function Home() {
 
   return <>
     <AboutMe/>
+    <Skills/>
 
     <Section id="projects">
       <div className="grid md:grid-cols-2 gap-8">

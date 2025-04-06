@@ -25,7 +25,7 @@ export default function AboutMe() {
             initial={{ x: -60, opacity: 0 }}
             animate={inView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-xl flex flex-col gap-4 bg-yellow-100 opacity-90 p-6 lg:p-8 rounded-2xl">
+            className="text-base lg:text-xl flex flex-col gap-4 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
             <h3>Hi, Hasbi here!</h3>
             <p>I’m a Front-End Developer who loves building clean, thoughtful, and user-friendly web experiences.</p>
             <p>
