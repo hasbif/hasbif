@@ -1,17 +1,16 @@
 "use client"
-import { useEffect, useRef } from 'react'
+import React, { ReactElement, ReactNode, RefObject, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 type SectionProps = {
   id: string
-  title: string
-  children: React.ReactNode
-  bgColor?: string
+  children: ((props: {inView: boolean, ref: React.RefObject<HTMLDivElement | null>}) => ReactNode) | ReactNode; 
+  className?: string
   bgImage?: string
 }
 
-const Section = ({ id, title, children, bgColor = 'bg-white', bgImage }: SectionProps) => {
+const Section = ({ id, children, className, bgImage }: SectionProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -37,7 +36,7 @@ const Section = ({ id, title, children, bgColor = 'bg-white', bgImage }: Section
     <section 
       id={id}
       ref={ref}
-      className={`relative h-screen w-full overflow-hidden ${bgColor} ${inView ? 'opacity-100' : 'opacity-50'} transition-opacity duration-500 text-red-500`}
+      className={`relative h-screen w-full overflow-hidden ${className} ${inView ? 'opacity-100' : 'opacity-80'} transition-opacity duration-500 text-black`}
     >
       {bgImage && (
         <motion.div 
@@ -49,9 +48,12 @@ const Section = ({ id, title, children, bgColor = 'bg-white', bgImage }: Section
           }}
         />
       )}
+      {typeof children === 'function' ? children({inView: inView, ref}) : children}
+
       
-      <div className="container mx-auto h-full flex flex-col justify-center relative z-10 px-8">
-        <motion.h2 
+      {/* <div className="container mx-auto h-full flex flex-col justify-center relative z-10 px-8"> */}
+        {/* {children} */}
+        {/* <motion.h2 
           initial={{ y: 50, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
@@ -67,8 +69,8 @@ const Section = ({ id, title, children, bgColor = 'bg-white', bgImage }: Section
           className="max-w-2xl"
         >
           {children}
-        </motion.div>
-      </div>
+        </motion.div> */}
+      {/* </div> */}
     </section>
   )
 }

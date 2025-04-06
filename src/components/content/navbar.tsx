@@ -21,7 +21,6 @@ const Navbar = ({ onClose }: NavbarProps) => {
       initial={{ y: '-100%' }}
       animate={{ y: 0 }}
       exit={{ y: '-100%' }}
-      // transition={{ease: "easeInOut", }}
       transition={{ type: 'spring', damping: 20 }}
       className="fixed inset-0 z-40 bg-sky-600 shadow-xl overflow-y-auto flex items-center justify-center"
     >

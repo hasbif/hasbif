@@ -1,19 +1,13 @@
+import AboutMe from "@/components/content/aboutme";
 import Section from "@/components/content/section";
 import Image from "next/image";
 
 export default function Home() {
 
   return <>
-    <Section id="about" title="About Me" bgColor="bg-blue-50">
-      <p className="text-lg mb-4">
-        Hi, I'm a passionate developer who loves creating beautiful web experiences.
-      </p>
-      <p>
-        With expertise in React, Next.js, and modern web technologies, I build performant and accessible websites.
-      </p>
-    </Section>
+    <AboutMe/>
 
-    <Section id="projects" title="My Projects" bgColor="bg-indigo-50">
+    <Section id="projects">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-bold mb-2">Project 1</h3>
@@ -26,7 +20,7 @@ export default function Home() {
       </div>
     </Section>
 
-    <Section id="contact" title="Get In Touch" bgColor="bg-purple-50">
+    <Section id="contact">
       <form className="max-w-md">
         <div className="mb-4">
           <label className="block mb-2">Name</label>
