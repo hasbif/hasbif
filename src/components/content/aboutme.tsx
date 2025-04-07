@@ -59,7 +59,7 @@ export default function AboutMe() {
         <FaTree className="h-32 w-32 text-green-700 absolute right-8 lg:right-56 -top-12" />
       </div> */}
       <div className="relative w-full h-dvh flex flex-col justify-center items-center z-10">
-        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[80%] gap-8">
+        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8 p-4 lg:py-8">
           <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
           <motion.div
             initial={{ x: -60, opacity: 0 }}

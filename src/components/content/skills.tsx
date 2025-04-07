@@ -7,9 +7,9 @@ export default function Skills() {
   return <Section id="about" bgImage="/treasure-bg.jpg"
   >
     {({ inView }) =>
-      <div className="relative w-full min-h-dvh h-full flex flex-col justify-center items-center p-2 gap-2">
+      <div className="relative w-full min-h-dvh h-full flex flex-col justify-center items-center p-4 gap-2">
         <FloatingColumnIcons />
-        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[80%] gap-8">
+        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8">
           <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
           <motion.div
             initial={{ x: -60, opacity: 0 }}

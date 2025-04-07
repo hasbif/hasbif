@@ -8,9 +8,9 @@ import { FaGlobe, FaLinkedinIn, FaUserSecret } from "react-icons/fa6";
 export default function Work() {
   return <Section id="about" bgImage="/cyber-bg.jpg">
     {({ inView }) =>
-      <div className="relative w-full h-full min-h-dvh flex flex-col justify-center items-center p-2 lg:py-8 gap-2">
+      <div className="relative w-full h-full min-h-dvh flex flex-col justify-center items-center p-4 lg:py-8 gap-2">
         <DigitalRain />
-        <div className="w-[80%] relative z-30 flex flex-col gap-8">
+        <div className="w-[90%] lg:w-[80%] relative z-30 flex flex-col gap-8">
           <motion.div
             // initial={{ x: -60, opacity: 0 }}
             // animate={inView ? { x: 0, opacity: 1 } : {}}
