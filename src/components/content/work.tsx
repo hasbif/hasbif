@@ -2,6 +2,8 @@
 import Section from "@/components/content/section";
 import { motion, useAnimation, useInView } from "framer-motion"
 import { SiChakraui, SiCss3, SiDocker, SiGit, SiGraphql, SiHtml5, SiJavascript, SiNextdotjs, SiNodedotjs, SiOpenai, SiPostgresql, SiReact, SiTailwindcss, SiTypescript, SiVitest, SiVuedotjs, SiWordpress } from 'react-icons/si';
+import { useEffect, useMemo, useRef, useState } from "react";
+import { FaGlobe, FaLinkedinIn, FaUserSecret } from "react-icons/fa6";
 
 export default function Work() {
   return <Section id="about" bgImage="/cyber-bg.jpg">
@@ -30,7 +32,7 @@ export default function Work() {
                 <FaUserSecret />
                 Secret tech — shhh!
               </div>
-              <StaggerText delay={1} text="I built dashboards for complex, data-heavy products — turning giant datasets into slick, interactive charts that might make you feel like a hacker (even if you’re just checking reports). Can’t say much more (NDA life), but trust me, it looked cool and worked fast." />
+              <TypingText inView={inView} text="I built dashboards for complex, data-heavy products — turning giant datasets into slick, interactive charts that might make you feel like a hacker (even if you’re just checking reports). Can’t say much more (NDA life), but trust me, it looked cool and worked fast."/>
             </div>
           </motion.div>
           <motion.div
@@ -52,7 +54,7 @@ export default function Work() {
                 <SiChakraui />
                 <SiGraphql />
               </div>
-              <StaggerText delay={1} text="I built applications for AI-powered tools (aka fancy OpenAI wrapper) and a Customer Data Platform webapp that definitely isn’t stalking your every click — just analyzing for “better user experiences.” Worked with awesome teams to make sure things shipped smooth and didn’t catch on fire." />
+              <TypingText inView={inView} speed={30} pauseBetweenChunks={40} chunkSize={2} text="I developed applications for AI-powered tools (aka fancy OpenAI wrapper) and a Customer Data Platform webapp that definitely isn’t stalking your every click — just analyzing for “better user experiences.” Worked with awesome teams to make sure things shipped smooth and didn’t catch on fire."/>
             </div>
           </motion.div>
 
@@ -73,7 +75,7 @@ export default function Work() {
               <div className="flex items-center mt-2 mb-4 gap-3">
                 <SiWordpress />
               </div>
-              <StaggerText delay={1} text="I made a wordpress website. It was my first ever trying out web developent so please be kind :)" />
+              <TypingText inView={inView} speed={50} pauseBetweenChunks={20} chunkSize={1} text="I made a wordpress website. It was my first ever trying out web developent so please be kind :)"/>
             </div>
           </motion.div>
         </div>
@@ -81,12 +83,6 @@ export default function Work() {
     }
   </Section>
 }
-
-
-
-
-import { useEffect, useRef } from "react";
-import { FaGlobe, FaLinkedinIn, FaUserSecret } from "react-icons/fa6";
 
 function DigitalRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -162,31 +158,75 @@ function DigitalRain() {
 }
 
 
-export function StaggerText({ text, className, delay = 0 }: { text: string, className?: string, delay?: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
-  const variants = {
-    hidden: { opacity: 0 },
-    show: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: { delay: i * 0.005 + delay },
-    }),
-  };
-  const letters = text.split('');
+function TypingText({
+  text,
+  inView,
+  speed = 20,
+  chunkSize = 3,
+  pauseBetweenChunks = 50,
+  restartOnReenter = true
+}: {
+  text: string
+  inView: boolean
+  speed?: number
+  chunkSize?: number
+  pauseBetweenChunks?: number
+  restartOnReenter?: boolean
+}) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const chunks = useMemo(() => {
+    const words = text.split(' ')
+    const result = []
+    for (let i = 0; i < words.length; i += chunkSize) {
+      result.push(words.slice(i, i + chunkSize).join(' '))
+    }
+    return result
+  }, [text, chunkSize])
+
+  const [displayedText, setDisplayedText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  useEffect(() => {
+    if (!inView) {
+      if (restartOnReenter) {
+        setDisplayedText('')
+        setCurrentIndex(0)
+      }
+      setIsAnimating(false)
+      return
+    }
+    setIsAnimating(true)
+  }, [inView, restartOnReenter])
+
+  // Typing animation effect
+  useEffect(() => {
+    if (!isAnimating || currentIndex >= chunks.length) return
+
+    const timeout = setTimeout(() => {
+      setDisplayedText(prev => 
+        prev ? `${prev} ${chunks[currentIndex]}` : chunks[currentIndex]
+      )
+      setCurrentIndex(prev => prev + 1)
+    }, currentIndex === 0 ? speed : speed + pauseBetweenChunks)
+
+    return () => clearTimeout(timeout)
+  }, [isAnimating, currentIndex, chunks, speed, pauseBetweenChunks])
+
   return (
-    <motion.div
-      initial="hidden"
-      animate={isInView ? 'show' : ''}
-      variants={variants}
-      viewport={{ once: true }}
-      ref={ref} className={className}
-    >
-      {letters.map((word, i) => (
-        <motion.span key={`${word}-${i}`} variants={variants} custom={i}>
-          {word}
-        </motion.span>
-      ))}
-    </motion.div>
-  );
+    <div ref={containerRef} className="relative">
+      <div 
+        aria-hidden 
+        className="invisible whitespace-pre-wrap"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+      
+      <div className="absolute inset-0 whitespace-pre-wrap">
+        {displayedText}
+        {isAnimating && currentIndex < chunks.length && (
+          <span className="animate-pulse">|</span>
+        )}
+      </div>
+    </div>
+  )
 }

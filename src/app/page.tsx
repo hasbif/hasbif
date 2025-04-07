@@ -1,4 +1,5 @@
 import AboutMe from "@/components/content/aboutme";
+import Others from "@/components/content/others";
 import Section from "@/components/content/section";
 import Skills from "@/components/content/skills";
 import Work from "@/components/content/work";
@@ -9,8 +10,9 @@ export default function Home() {
     <AboutMe/>
     <Skills/>
     <Work/>
+    <Others/>
 
-    <Section id="projects">
+    {/* <Section id="projects">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-bold mb-2">Project 1</h3>
@@ -21,9 +23,9 @@ export default function Home() {
           <p>Another fantastic project I worked on.</p>
         </div>
       </div>
-    </Section>
+    </Section> */}
 
-    <Section id="contact">
+    {/* <Section id="contact">
       <form className="max-w-md">
         <div className="mb-4">
           <label className="block mb-2">Name</label>
@@ -40,7 +42,7 @@ export default function Home() {
           Send Message
         </button>
       </form>
-    </Section>
+    </Section> */}
   </>
   return (
     <div className="flex flex-col">

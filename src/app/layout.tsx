@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/layout";
+import { NavbarProvider } from "@/components/layout/navbarContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,16 +27,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <link rel="preload" href="/treasure-bg.jpg" as="image" />
-      <link rel="preload" href="/main-bg.jpg" as="image" />
-      <link rel="preload" href="/cyber-bg.jpg" as="image" />
+        <link rel="preload" href="/treasure-bg.jpg" as="image" />
+        <link rel="preload" href="/main-bg.jpg" as="image" />
+        <link rel="preload" href="/cyber-bg.jpg" as="image" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Layout>
-          {children}
-        </Layout>
+        <NavbarProvider>
+          <Layout>
+            {children}
+          </Layout>
+        </NavbarProvider>
       </body>
     </html>
   );

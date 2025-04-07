@@ -5,13 +5,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from '../content/navbar'
 import { setupCustomScroll } from './scroll'
 import Loader from './loader'
+import { useNavbar } from './navbarContext'
 
 type LayoutProps = {
   children: React.ReactNode
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [navbar, setNavbar] = useState(true)
+  const { isOpen, toggle, close, open } = useNavbar()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -30,17 +31,17 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Loader isLoading={isLoading} />
       <AnimatePresence>
-        {navbar && <Navbar onClose={() => setNavbar(false)} />}
+        {isOpen && <Navbar onClose={close} />}
       </AnimatePresence>
       <div className={isLoading ? 'relative opacity-0' : 'relative opacity-100 transition-opacity duration-200'}>
         <StickyButton
-          isOpen={navbar}
-          onClick={() => setNavbar(!navbar)}
+          isOpen={isOpen}
+          onClick={toggle}
         />
         <ScrollIndicator />
       </div>
       <main className="relative">
-        <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-1000'}>
+        <div className={isLoading ? 'opacity-0 relative' : 'opacity-100 transition-opacity duration-1000 relative'}>
           {children}
         </div>
       </main>

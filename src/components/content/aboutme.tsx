@@ -2,16 +2,57 @@
 import Section from "@/components/content/section";
 import { FaTree } from "react-icons/fa6";
 import { motion } from "framer-motion"
+import { useEffect, useRef } from "react";
+import { useNavbar } from "../layout/navbarContext";
 
 export default function AboutMe() {
+  const { open } = useNavbar()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const touchStartY = useRef(0)
+  const threshold = 50
+
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    const container = containerRef.current
+
+    const handleWheel = (e: WheelEvent) => {
+      if (container.scrollTop === 0 && e.deltaY < -threshold) {
+        open()
+      }
+    }
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY
+    }
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndY = e.changedTouches[0].clientY
+      const diff = touchStartY.current - touchEndY
+      if (container.scrollTop === 0 && diff < -threshold) {
+        open()
+      }
+    }
+
+    container.addEventListener("wheel", handleWheel)
+    container.addEventListener("touchstart", handleTouchStart)
+    container.addEventListener("touchend", handleTouchEnd)
+
+    return () => {
+      container.removeEventListener("wheel", handleWheel)
+      container.removeEventListener("touchstart", handleTouchStart)
+      container.removeEventListener("touchend", handleTouchEnd)
+    }
+  }, [open, threshold, containerRef])
+
   return <Section id="about" bgImage="/main-bg.jpg">
-    {({ inView }) => <div>
+    {({ inView }) => <div ref={containerRef}>
       <motion.div
         initial={{ y: '-100%', opacity: 1 }}
         animate={inView ? { y: '20%', opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
         className="absolute left-[5%]">
-          <Sun/>
+        <Sun />
       </motion.div>
       {/* <div className="absolute bottom-0 w-full h-48 bg-emerald-600">
         <FaTree className="h-48 w-48 text-green-950 absolute right-4 lg:right-28 -top-32" />

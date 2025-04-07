@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
 import { motion, useAnimation } from 'framer-motion'
-import { FaInstagram, FaLaptopCode } from "react-icons/fa6";
+import { FaInstagram, FaLaptopCode, FaRegHandPointDown } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io";
 import { FaSpotify } from "react-icons/fa6";
 import { FaGlobeAsia } from 'react-icons/fa';
-import { SiCss3, SiGraphql, SiHtml5, SiJavascript, SiNextdotjs, SiNodedotjs, SiReact, SiTypescript } from 'react-icons/si';
+import { SiCss3, SiHtml5, SiJavascript, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';
 import AnimatedClouds from './clouds';
 import { useEffect } from 'react';
 
@@ -16,6 +16,37 @@ type NavbarProps = {
 }
 
 const Navbar = ({ onClose }: NavbarProps) => {
+  useEffect(() => {
+    let touchStartY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchEndY = e.touches[0].clientY;
+      if (touchStartY - touchEndY > 25) {
+        onClose();
+      }
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY > 0) {
+        onClose();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, [onClose]);
+
   return (
     <motion.div
       initial={{ y: '-100%' }}
@@ -86,8 +117,9 @@ const Navbar = ({ onClose }: NavbarProps) => {
           </div>
         </div>
         <div className='col-span-full flex items-center justify-center'>
-          <button className='rounded-full bg-yellow-300 p-3 px-5 text-2xl text-black cursor-pointer' onClick={onClose}>
+          <button className='rounded-full bg-yellow-300 p-3 px-5 text-2xl text-black cursor-pointer flex items-center gap-2' onClick={onClose}>
             Get to know me more
+            <FaRegHandPointDown/>
           </button>
         </div>
       </div>
