@@ -59,14 +59,16 @@ export default function AboutMe() {
         <FaTree className="h-32 w-32 text-green-700 absolute right-8 lg:right-56 -top-12" />
       </div> */}
       <div className="relative w-full h-dvh flex flex-col justify-center items-center z-10">
-        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8 p-4 lg:py-8">
+        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8 p-4 lg:py-8 text-justify">
           <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
           <motion.div
             initial={{ x: -60, opacity: 0 }}
             animate={inView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-xl flex flex-col gap-4 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
-            <h3>Hi, Hasbi here!</h3>
+            className="text-base lg:text-xl flex flex-col gap-3 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
+            <div className="flex gap-4 items-end"><img src='/8bit-me.png' className="rounded h-16 w-16 lg:hidden" /> 
+            <h3 className="text-xl lg:text-2xl">Hi, Hasbi here!</h3>
+            </div>
             <p>I’m a Front-End Developer who loves building clean, thoughtful, and user-friendly web experiences.</p>
             <p>
               I like to write code with a mix of creativity, modern technology, and way too many browser tabs open.

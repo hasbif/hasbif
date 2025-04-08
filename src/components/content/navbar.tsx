@@ -1,9 +1,7 @@
 import dayjs from 'dayjs'
 import { motion, useAnimation } from 'framer-motion'
-import { FaInstagram, FaLaptopCode, FaRegHandPointDown } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaInstagram, FaLaptopCode, FaLinkedinIn, FaRegHandPointDown, FaSpotify } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io";
-import { FaSpotify } from "react-icons/fa6";
 import { FaGlobeAsia } from 'react-icons/fa';
 import { SiCss3, SiHtml5, SiJavascript, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';
 import AnimatedClouds from './clouds';

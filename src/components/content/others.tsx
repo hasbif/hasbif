@@ -1,20 +1,24 @@
 "use client"
 import Section from "@/components/content/section";
 import { motion } from "framer-motion"
+import { FaSpotify } from "react-icons/fa6";
+import { IoLogoYoutube } from "react-icons/io5";
+import { SiApplemusic } from "react-icons/si";
 
 export default function Others() {
   return <Section id="about" bgImage="/bedroom-bg.jpg">
     {({ inView }) =>
       <div className="relative w-full h-full min-h-dvh flex flex-col lg:flex-col-reverse justify-center items-center p-4 lg:py-8 gap-4">
-        <div className="w-[90%] lg:w-[80%] lg:grid lg:grid-cols-[auto_1fr] gap-8 relative">
+        <div className="w-[90%] lg:w-[80%] lg:grid lg:grid-cols-[auto_1fr] gap-8 relative items-end">
           <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
           <div className="flex flex-col gap-2 relative">
             <motion.div
               initial={{ x: -60, opacity: 0 }}
               animate={inView ? { x: 0, opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0 }}
-              className="text-base lg:text-lg flex flex-col gap-4 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
-              <p>If ur still curious, here's a little bit more about myself</p>
+              className="text-base lg:text-lg bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
+              <img src='/8bit-me.png' className="rounded h-16 w-16 lg:hidden float-left mr-4" /> 
+              <p>If your're still curious, here's a little bit more about myself</p>
             </motion.div>
           </div>
         </div>
@@ -81,6 +85,11 @@ export default function Others() {
                 <hr className="text-yellow-600" />
                 <p>{"Did you know I do music? Bit of a self-plug but feel free to check it out, and if you really want to help me out, play it on repeat so I get those royalty pennies ;)"}
                 </p>
+                <div className="flex text-4xl self-end gap-3 items-center">
+                  <a className="hover:text-green-400"target="_blank" href="https://open.spotify.com/artist/3F7wF0Xu2wZgsQicsQYxr2"><FaSpotify/></a>
+                  <a className="hover:text-rose-400" target="_blank" href="https://music.apple.com/us/artist/hasbae/1603490492"><SiApplemusic/></a>
+                  <a className="hover:text-red-500" target="_blank" href="https://music.youtube.com/channel/UCtu225UQ9jeD_q8omumGANw"><IoLogoYoutube/></a>
+                </div>
               </div>
             </motion.div>
           </div>

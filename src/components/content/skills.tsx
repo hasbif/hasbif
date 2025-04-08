@@ -9,14 +9,17 @@ export default function Skills() {
     {({ inView }) =>
       <div className="relative w-full min-h-dvh h-full flex flex-col justify-center items-center p-4 gap-2">
         <FloatingColumnIcons />
-        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8">
+        <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8 items-end">
           <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
           <motion.div
             initial={{ x: -60, opacity: 0 }}
             animate={inView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-xl flex flex-col gap-4 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
-            <p><i>"Think of learning as your personal pot of gold."</i> - some dude, probably</p>
+            className="text-base lg:text-xl bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
+              <div className="min-h-16 lg:min-h-0">
+              <img src='/8bit-me.png' className="rounded h-16 w-16 lg:hidden float-left mr-4" /> 
+              <p><i>"Think of learning as your personal pot of gold."</i> - some dude, probably</p>
+              </div>
           </motion.div>
         </div>
       </div>
