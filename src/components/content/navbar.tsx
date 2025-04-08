@@ -7,6 +7,7 @@ import { SiCss3, SiHtml5, SiJavascript, SiNextdotjs, SiReact, SiTypescript } fro
 import AnimatedClouds from './clouds';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { filePathParse } from '../utils';
 
 
 
@@ -179,7 +180,7 @@ function ShinyImage({ src, alt }: { src: string; alt: string }) {
     <div className="relative overflow-hidden border-8 rounded-4xl border-amber-600 inline-block max-w-[30dvh] lg:max-w-none">
       <div className="relative w-full" style={{ aspectRatio: 'auto', height: 'auto' }}>
         <Image
-          src={src}
+          src={filePathParse(src)}
           alt={alt}
           width={800}
           height={600}

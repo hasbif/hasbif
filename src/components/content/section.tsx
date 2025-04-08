@@ -2,6 +2,7 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
+import { filePathParse } from '../utils'
 
 type SectionProps = {
   id: string
@@ -35,7 +36,7 @@ const Section = ({ id, children, className, bgImage, style }: SectionProps) => {
       {bgImage && (
         <div className="absolute inset-0 -z-10">
           <Image
-            src={bgImage}
+            src={filePathParse(bgImage)}
             alt="Background-Image"
             fill
             quality={100}

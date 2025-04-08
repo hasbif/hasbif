@@ -3,6 +3,7 @@ import Section from "@/components/content/section";
 import { motion, useAnimation } from "framer-motion"
 import Image from "next/image";
 import { SiChakraui, SiCss3, SiDocker, SiGit, SiGraphql, SiHtml5, SiJavascript, SiNextdotjs, SiNodedotjs, SiOpenai, SiPostgresql, SiReact, SiTailwindcss, SiTypescript, SiVitest, SiVuedotjs } from 'react-icons/si';
+import { filePathParse } from "../utils";
 
 export default function Skills() {
   return <Section id="about" bgImage="/treasure-bg.jpg"
@@ -11,14 +12,14 @@ export default function Skills() {
       <div className="relative w-full min-h-dvh h-full flex flex-col justify-center items-center p-4 gap-2">
         <FloatingColumnIcons />
         <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8 items-end">
-          <Image alt="avatar" src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
+          <Image alt="avatar" src={filePathParse('/8bit-me.png')} height={96} width={96} className="rounded-2xl hidden lg:block" />
           <motion.div
             initial={{ x: -60, opacity: 0 }}
             animate={inView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base lg:text-xl bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
               <div className="min-h-16 lg:min-h-0">
-              <Image alt="avatar" src='/8bit-me.png' height={64} width={64} className="rounded h-16 w-16 lg:hidden float-left mr-4" /> 
+              <Image alt="avatar" src={filePathParse('/8bit-me.png')} height={64} width={64} className="rounded h-16 w-16 lg:hidden float-left mr-4" /> 
               <p><i>"Think of learning as your personal pot of gold."</i> - some dude, probably</p>
               </div>
           </motion.div>
