@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   // assetPrefix: '/hasbif/',
   basePath: process.env.NODE_ENV !== 'development' ? '/hasbif' : '',
   assetPrefix: process.env.NODE_ENV !== 'development' ? '/hasbif/' : '',
+  output: 'export', 
+  images: {
+    unoptimized: true
+  }
 };
 
 export default nextConfig;
