@@ -100,16 +100,16 @@ const Navbar = ({ onClose }: NavbarProps) => {
             </div>
           </div>
           <div className='flex text-4xl gap-2'>
-            <a className='hover:text-emerald-300 cursor-pointer' target='_blank' href='https://www.linkedin.com/in/muhammad-h-fauzi/'>
+            <a className='hover:text-yellow-300 cursor-pointer' target='_blank' href='https://www.linkedin.com/in/muhammad-h-fauzi/'>
               <FaLinkedinIn />
             </a>
-            <a className='hover:text-emerald-300 cursor-pointer' target='_blank' href='https://github.com/hasbif'>
+            <a className='hover:text-yellow-300 cursor-pointer' target='_blank' href='https://github.com/hasbif'>
               <IoLogoGithub />
             </a>
-            <a className='hover:text-emerald-300 cursor-pointer' target='_blank' href='https://www.instagram.com/hasbae/'>
+            <a className='hover:text-yellow-300 cursor-pointer' target='_blank' href='https://www.instagram.com/hasbae/'>
               <FaInstagram />
             </a>
-            <a className='hover:text-emerald-300 cursor-pointer' target='_blank' href='https://open.spotify.com/artist/3F7wF0Xu2wZgsQicsQYxr2'>
+            <a className='hover:text-yellow-300 cursor-pointer' target='_blank' href='https://open.spotify.com/artist/3F7wF0Xu2wZgsQicsQYxr2'>
               <FaSpotify />
             </a>
           </div>

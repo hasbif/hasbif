@@ -1,4 +1,5 @@
 import AboutMe from "@/components/content/aboutme";
+import Footer from "@/components/content/footer";
 import Others from "@/components/content/others";
 import Section from "@/components/content/section";
 import Skills from "@/components/content/skills";
@@ -11,6 +12,7 @@ export default function Home() {
     <Skills/>
     <Work/>
     <Others/>
+    <Footer/>
 
     {/* <Section id="projects">
       <div className="grid md:grid-cols-2 gap-8">

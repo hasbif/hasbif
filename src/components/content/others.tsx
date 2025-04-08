@@ -18,13 +18,13 @@ export default function Others() {
               transition={{ duration: 0.6, delay: 0 }}
               className="text-base lg:text-lg bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
               <img src='/8bit-me.png' className="rounded h-16 w-16 lg:hidden float-left mr-4" /> 
-              <p>If your're still curious, here's a little bit more about myself</p>
+              <p>Anyway, here’s the part where I talk a little bit more about myself.</p>
             </motion.div>
           </div>
         </div>
         
         <div className="flex-1 flex justify-center items-center">
-          <div className="w-[90%] lg:w-[80%] grid lg:grid-cols-3 gap-y-4 gap-x-0 lg:gap-x-8 lg:gap-y-0 font-sour">
+          <div className="w-[90%] lg:w-[80%] grid lg:grid-cols-3 gap-y-4 gap-x-0 lg:gap-x-8 lg:gap-y-0 font-sour text-justify">
             <motion.div
               initial={{ y: 200, opacity: 0.5 }}
               animate={inView ? { y: 0, opacity: 1 } : {}}
@@ -36,7 +36,7 @@ export default function Others() {
               />
               <div className="relative overflow-hidden p-4">
                 <img className="absolute left-0 bottom-0 opacity-10 h-48 -rotate-12" src="/uh-logo.png" />
-                <div className="flex flex-col gap-4 ">
+                <div className="flex flex-col gap-4 relative z-10">
                   <h6 className="text-rose-600 font-semibold text-xl">Univeristy of Houston</h6>
                   <hr className="text-rose-600" />
                   <p>My backround is actually Mechanical Engineering. I know, not exactly related to web development, but hey, front-end engineers are engineers, right?</p>
@@ -63,7 +63,7 @@ export default function Others() {
                 }}
                 src="/mouse.png"
               />
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 relative z-10">
                 <h6 className="text-orange-500 font-semibold text-xl">Hacktiv8</h6>
                 <hr className="text-orange-500" />
                 <p>Apparently 4 months of coding bootcamp is all it takes to dive headfirst into a lifetime of debugging, learning, and realizing how little you actually know.
