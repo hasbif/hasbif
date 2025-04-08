@@ -5,7 +5,20 @@ import { motion } from "framer-motion"
 export default function Others() {
   return <Section id="about" bgImage="/bedroom-bg.jpg">
     {({ inView }) =>
-      <div className="relative w-full h-full min-h-dvh flex flex-col justify-between items-center p-4 lg:py-8 gap-2">
+      <div className="relative w-full h-full min-h-dvh flex flex-col lg:flex-col-reverse justify-center items-center p-4 lg:py-8 gap-4">
+        <div className="w-[90%] lg:w-[80%] lg:grid lg:grid-cols-[auto_1fr] gap-8 relative">
+          <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
+          <div className="flex flex-col gap-2 relative">
+            <motion.div
+              initial={{ x: -60, opacity: 0 }}
+              animate={inView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0 }}
+              className="text-base lg:text-lg flex flex-col gap-4 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
+              <p>If ur still curious, here's a little bit more about myself</p>
+            </motion.div>
+          </div>
+        </div>
+        
         <div className="flex-1 flex justify-center items-center">
           <div className="w-[90%] lg:w-[80%] grid lg:grid-cols-3 gap-y-4 gap-x-0 lg:gap-x-8 lg:gap-y-0 font-sour">
             <motion.div
@@ -69,20 +82,6 @@ export default function Others() {
                 <p>{"Did you know I do music? Bit of a self-plug but feel free to check it out, and if you really want to help me out, play it on repeat so I get those royalty pennies ;)"}
                 </p>
               </div>
-            </motion.div>
-          </div>
-        </div>
-
-
-        <div className="w-[90%] lg:w-[80%] lg:grid lg:grid-cols-[auto_1fr] gap-8 relative mb-4">
-          <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
-          <div className="flex flex-col gap-2 relative">
-            <motion.div
-              initial={{ x: -60, opacity: 0 }}
-              animate={inView ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0 }}
-              className="text-base lg:text-lg flex flex-col gap-4 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
-              <p>If ur still curious, here's a little bit more about myself</p>
             </motion.div>
           </div>
         </div>
