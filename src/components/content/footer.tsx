@@ -2,6 +2,7 @@
 import Section from "@/components/content/section";
 import Fireworks, { FireworksHandlers } from "@fireworks-js/react";
 import { motion, useAnimation } from "framer-motion"
+import Image from "next/image";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { FaInstagram, FaLinkedinIn, FaSpotify } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io5";
@@ -112,14 +113,14 @@ export default function Footer() {
             </motion.div>
           </div>
           <div className="w-[90%] lg:w-[80%] lg:grid lg:grid-cols-[auto_1fr] gap-8 relative items-end">
-            <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
+            <Image alt="avatar" src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
             <div className="flex flex-col gap-2 relative">
               <motion.div
                 initial={{ x: -60, opacity: 0 }}
                 animate={inView ? { x: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0 }}
                 className="text-base lg:text-lg bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
-                <img src='/8bit-me.png' className="rounded h-16 w-16 lg:hidden float-left mr-4" />
+                <Image alt="avatar" src='/8bit-me.png' height={64} width={64} className="rounded lg:hidden float-left mr-4" />
                 <p>That’s about it. If you’re still curious or just wanna chat, feel free to reach out to me somehow. Thanks for stopping by and checking out my little corner of the internet.</p>
                 <p className="text-right font-fancy text-2xl font-bold leading-6">Yours truly, Hasbi</p>
               </motion.div>

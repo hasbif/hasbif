@@ -4,6 +4,7 @@ import { FaTree } from "react-icons/fa6";
 import { motion } from "framer-motion"
 import { useEffect, useRef } from "react";
 import { useNavbar } from "../layout/navbarContext";
+import Image from "next/image";
 
 export default function AboutMe() {
   const { open } = useNavbar()
@@ -60,13 +61,14 @@ export default function AboutMe() {
       </div> */}
       <div className="relative w-full h-dvh flex flex-col justify-center items-center z-10">
         <div className="lg:grid lg:grid-cols-[auto_1fr] w-[90%] lg:w-[80%] gap-8 p-4 lg:py-8 text-justify">
-          <img src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
+          <Image alt="avatar" src='/8bit-me.png' height={96} width={96} className="rounded-2xl hidden lg:block" />
           <motion.div
             initial={{ x: -60, opacity: 0 }}
             animate={inView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base lg:text-xl flex flex-col gap-3 bg-yellow-100 opacity-90 p-4 lg:p-8 rounded-2xl">
-            <div className="flex gap-4 items-end"><img src='/8bit-me.png' className="rounded h-16 w-16 lg:hidden" />
+            <div className="flex gap-4 items-end">
+              <Image alt="avatar" src='/8bit-me.png' height={64} width={64} className="rounded lg:hidden" />
               <h3 className="text-xl lg:text-2xl">Hi, Hasbi here!</h3>
             </div>
             <p>I’m a Front-End Developer who loves building clean, thoughtful, and user-friendly web experiences.</p>

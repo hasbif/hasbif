@@ -6,6 +6,7 @@ import { FaGlobeAsia } from 'react-icons/fa';
 import { SiCss3, SiHtml5, SiJavascript, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';
 import AnimatedClouds from './clouds';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 
 
@@ -117,7 +118,7 @@ const Navbar = ({ onClose }: NavbarProps) => {
         <div className='col-span-full flex items-center justify-center'>
           <button className='rounded-full bg-yellow-300 p-3 px-5 text-2xl text-black cursor-pointer flex items-center gap-2' onClick={onClose}>
             Get to know me more
-            <FaRegHandPointDown/>
+            <FaRegHandPointDown />
           </button>
         </div>
       </div>
@@ -176,11 +177,20 @@ function ShinyImage({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div className="relative overflow-hidden border-8 rounded-4xl border-amber-600 inline-block max-w-[30dvh] lg:max-w-none">
-      <img
-        src={src}
-        alt={alt}
-        className="block w-full h-auto relative z-0"
-      />
+      <div className="relative w-full" style={{ aspectRatio: 'auto', height: 'auto' }}>
+        <Image
+          src={src}
+          alt={alt}
+          width={800}
+          height={600}
+          className="w-full h-auto object-cover"
+          style={{
+            maxWidth: '100%',
+            height: 'auto'
+          }}
+          priority={true}
+        />
+      </div>
 
       <motion.div
         initial={{ x: '-100%', skewX: 0 }}
