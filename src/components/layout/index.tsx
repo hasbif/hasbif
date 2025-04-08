@@ -6,6 +6,8 @@ import Navbar from '../content/navbar'
 import { setupCustomScroll } from './scroll'
 import Loader from './loader'
 import { useNavbar } from './navbarContext'
+// @ts-ignore
+import { SpriteAnimator } from 'react-sprite-animator'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -110,17 +112,24 @@ function ScrollIndicator() {
 
   return (
     <motion.div
-      className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-indigo-600 shadow-lg flex items-center justify-center text-white font-bold text-sm"
-      animate={scrollState}
-      variants={{
-        falling: { y: [0, 10, 0], transition: { repeat: Infinity, duration: 1 } },
-        flying: { y: [0, -10, 0], transition: { repeat: Infinity, duration: 1 } },
-        stationary: { y: 0 }
-      }}
+      className="fixed bottom-8 md:bottom-16 right-2 lg:right-8 z-50 flex items-center justify-center text-white font-bold text-sm"
+      // animate={scrollState}
+      // variants={{
+      //   falling: { y: [0, 10, 0], transition: { repeat: Infinity, duration: 1 } },
+      //   flying: { y: [0, -10, 0], transition: { repeat: Infinity, duration: 1 } },
+      //   stationary: { y: 0 }
+      // }}
     >
-      {scrollState === 'falling' && '▼'}
+      <SpriteAnimator
+        sprite="/sprite-walk.png"
+        width={64}
+        height={64}
+        fps={12}
+        shouldAnimate={scrollState !== 'stationary'}
+      />
+      {/* {scrollState === 'falling' && '▼'}
       {scrollState === 'flying' && '▲'}
-      {scrollState === 'stationary' && '●'}
+      {scrollState === 'stationary' && '●'} */}
     </motion.div>
   )
 }
