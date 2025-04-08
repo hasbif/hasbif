@@ -8,6 +8,7 @@ import Loader from './loader'
 import { useNavbar } from './navbarContext'
 // @ts-ignore
 import { SpriteAnimator } from 'react-sprite-animator'
+import { filePathParse } from '../utils'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -121,7 +122,7 @@ function ScrollIndicator() {
       // }}
     >
       <SpriteAnimator
-        sprite="/sprite-walk.png"
+        sprite={filePathParse("/sprite-walk.png")}
         width={64}
         height={64}
         fps={12}
