@@ -36,7 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
       <AnimatePresence>
         {isOpen && <Navbar onClose={close} />}
       </AnimatePresence>
-      <div className={isLoading ? 'relative opacity-0' : 'relative opacity-100 transition-opacity duration-200'}>
+      <div  className={isLoading ? 'relative opacity-0' : 'relative opacity-100 transition-opacity duration-200'}>
         <StickyButton
           isOpen={isOpen}
           onClick={toggle}
@@ -44,7 +44,10 @@ const Layout = ({ children }: LayoutProps) => {
         <ScrollIndicator />
       </div>
       <main className="relative">
-        <div className={isLoading ? 'opacity-0 relative' : 'opacity-100 transition-opacity duration-1000 relative'}>
+        <div
+          className='relative'
+        // className={isLoading ? 'opacity-0 relative' : 'opacity-100 transition-opacity duration-1000 relative'}
+        >
           {children}
         </div>
       </main>

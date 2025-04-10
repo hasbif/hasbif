@@ -4,15 +4,27 @@ import Others from "@/components/content/others";
 import Section from "@/components/content/section";
 import Skills from "@/components/content/skills";
 import Work from "@/components/content/work";
+import Layout from "@/components/layout";
+import { NavbarProvider } from "@/components/layout/navbarContext";
 
 export default function Home() {
 
+  return <NavbarProvider>
+    <Layout>
+      <AboutMe />
+      <Skills />
+      <Work />
+      <Others />
+      <Footer />
+    </Layout>
+  </NavbarProvider>
+
   return <>
-    <AboutMe/>
-    <Skills/>
-    <Work/>
-    <Others/>
-    <Footer/>
+    <AboutMe />
+    <Skills />
+    <Work />
+    <Others />
+    <Footer />
 
     {/* <Section id="projects">
       <div className="grid md:grid-cols-2 gap-8">

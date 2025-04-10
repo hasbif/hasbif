@@ -20,10 +20,10 @@ export default function Work() {
               Pensieve
               <div className="flex gap-4 items-center">
                 <a className='hover:text-fuchsia-300 cursor-pointer' target='_blank' href='https://www.linkedin.com/company/pensieve-id/'>
-                  <FaGlobe />
+                  <FaLinkedinIn />
                 </a>
                 <a className='hover:text-fuchsia-300 cursor-pointer' target='_blank' href='https://pensieve.id/'>
-                  <FaLinkedinIn />
+                  <FaGlobe />
                 </a>
               </div>
             </div>
@@ -32,7 +32,7 @@ export default function Work() {
                 <FaUserSecret />
                 Secret tech — shhh!
               </div>
-              <TypingText inView={inView} text="I built dashboards for complex, data-heavy products — turning giant datasets into slick, interactive charts that might make you feel like a hacker (even if you’re just checking reports). Can’t say much more (NDA life), but trust me, it looked cool and worked fast."/>
+              <TypingText inView={inView} text="I built dashboards for complex, data-heavy products — turning giant datasets into slick, interactive charts that might make you feel like a hacker (even if you’re just checking reports). Can’t say much more (NDA life), but trust me, it looked cool and worked fast." />
             </div>
           </motion.div>
           <motion.div
@@ -41,10 +41,10 @@ export default function Work() {
               Feedloop.io
               <div className="flex gap-4 items-center">
                 <a className='hover:text-fuchsia-300 cursor-pointer' target='_blank' href='https://www.linkedin.com/company/feedloopai/'>
-                  <FaGlobe />
+                  <FaLinkedinIn />
                 </a>
                 <a className='hover:text-fuchsia-300 cursor-pointer' target='_blank' href='https://feedloop.ai/'>
-                  <FaLinkedinIn />
+                  <FaGlobe />
                 </a>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function Work() {
                 <SiChakraui />
                 <SiGraphql />
               </div>
-              <TypingText inView={inView} speed={30} pauseBetweenChunks={40} chunkSize={2} text="I developed applications for AI-powered tools (aka fancy OpenAI wrapper) and a Customer Data Platform webapp that definitely isn’t stalking your every click — just analyzing for “better user experiences.” Worked with awesome teams to make sure things shipped smooth and didn’t catch on fire."/>
+              <TypingText inView={inView} speed={30} pauseBetweenChunks={40} chunkSize={2} text="I developed applications for AI-powered tools (aka fancy OpenAI wrapper) and a Customer Data Platform webapp that definitely isn’t stalking your every click — just analyzing for “better user experiences.” Worked with awesome teams to make sure things shipped smooth and didn’t catch on fire." />
             </div>
           </motion.div>
 
@@ -64,10 +64,10 @@ export default function Work() {
               PT. Aldaberta
               <div className="flex gap-4 items-center">
                 <a className='hover:text-fuchsia-300 cursor-pointer' target='_blank' href='https://www.linkedin.com/company/pt-aldaberta-indonesia/'>
-                  <FaGlobe />
+                  <FaLinkedinIn />
                 </a>
                 <a className='hover:text-fuchsia-300 cursor-pointer' target='_blank' href='https://aldaberta.com/'>
-                  <FaLinkedinIn />
+                  <FaGlobe />
                 </a>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function Work() {
               <div className="flex items-center mt-2 mb-4 gap-3">
                 <SiWordpress />
               </div>
-              <TypingText inView={inView} speed={50} pauseBetweenChunks={20} chunkSize={1} text="I made a wordpress website. It was my first ever trying out web developent so please be kind :)"/>
+              <TypingText inView={inView} speed={50} pauseBetweenChunks={20} chunkSize={1} text="I made a wordpress website. It was my first ever trying out web developent so please be kind :)" />
             </div>
           </motion.div>
         </div>
@@ -204,7 +204,7 @@ function TypingText({
     if (!isAnimating || currentIndex >= chunks.length) return
 
     const timeout = setTimeout(() => {
-      setDisplayedText(prev => 
+      setDisplayedText(prev =>
         prev ? `${prev} ${chunks[currentIndex]}` : chunks[currentIndex]
       )
       setCurrentIndex(prev => prev + 1)
@@ -215,12 +215,12 @@ function TypingText({
 
   return (
     <div ref={containerRef} className="relative">
-      <div 
-        aria-hidden 
+      <div
+        aria-hidden
         className="invisible whitespace-pre-wrap"
         dangerouslySetInnerHTML={{ __html: text }}
       />
-      
+
       <div className="absolute inset-0 whitespace-pre-wrap">
         {displayedText}
         {isAnimating && currentIndex < chunks.length && (

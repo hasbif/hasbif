@@ -30,7 +30,8 @@ const Section = ({ id, children, className, bgImage, style }: SectionProps) => {
     <section
       id={id}
       ref={ref}
-      className={`relative h-full min-h-dvh w-full overflow-hidden ${className} ${inView ? 'opacity-100' : 'opacity-80'} transition-opacity duration-500 text-black`}
+      className={`relative h-full min-h-dvh w-full overflow-hidden ${className}  text-black`}
+      // ${inView ? 'opacity-100' : 'opacity-80'} transition-opacity duration-500
       style={style}
     >
       {bgImage && (

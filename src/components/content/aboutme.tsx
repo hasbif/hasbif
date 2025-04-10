@@ -6,6 +6,8 @@ import { useEffect, useRef } from "react";
 import { useNavbar } from "../layout/navbarContext";
 import Image from "next/image";
 import { filePathParse } from "../utils";
+import Link from "next/link";
+import { RxFileText } from "react-icons/rx";
 
 export default function AboutMe() {
   const { open } = useNavbar()
@@ -77,7 +79,7 @@ export default function AboutMe() {
               I like to write code with a mix of creativity, modern technology, and way too many browser tabs open.
             </p><p>When I’m not writing "useful" code, I’m usually busy overthinking pixel spacing, second-guessing font sizes, or convincing myself that no one will notice the different hex codes for gray.</p>
             <p>Always up for learning new things, working with great people, and building cool stuff together.</p>
-            <i className="text-xs lg:text-base">P.S. If you’re looking for a more formal summary of my experience, feel free to check out my <a>resume</a></i>
+            <i className="text-xs lg:text-base flex gap-1 items-center">P.S. If you’re looking for a more formal summary of my experience, feel free to check out my resume <span><Link href={'/resume'} className="text-lime-500 "><RxFileText/></Link></span></i>
           </motion.div>
         </div>
       </div>

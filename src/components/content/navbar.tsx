@@ -8,6 +8,8 @@ import AnimatedClouds from './clouds';
 import { useEffect } from 'react';
 import Image from 'next/image';
 import { filePathParse } from '../utils';
+import Link from 'next/link';
+import { RxFileText } from 'react-icons/rx';
 
 
 
@@ -52,8 +54,9 @@ const Navbar = ({ onClose }: NavbarProps) => {
       initial={{ y: '-100%' }}
       animate={{ y: 0 }}
       exit={{ y: '-100%' }}
-      transition={{ type: 'spring', damping: 20 }}
-      className="fixed inset-0 z-40 bg-sky-600 shadow-xl overflow-y-auto flex items-center justify-center"
+      // transition={{ type: 'spring', damping: 20, duration: 0.1 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="fixed inset-0 z-40 bg-sky-600 shadow-xl overflow-y-auto flex items-center justify-center text-white"
     >
       <div className='grid grid-cols-1 lg:grid-cols-3 p-4 lg:p-24 container gap-x-0 gap-y-2 lg:gap-16 z-30'>
         <div>
@@ -114,6 +117,9 @@ const Navbar = ({ onClose }: NavbarProps) => {
             <a className='hover:text-yellow-300 cursor-pointer' target='_blank' href='https://open.spotify.com/artist/3F7wF0Xu2wZgsQicsQYxr2'>
               <FaSpotify />
             </a>
+            <Link href={"/resume"} className='hover:text-yellow-300 cursor-pointer'>
+              <RxFileText />
+            </Link>
           </div>
         </div>
         <div className='col-span-full flex items-center justify-center'>

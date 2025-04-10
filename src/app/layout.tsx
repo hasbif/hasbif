@@ -45,11 +45,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${sourGummy.variable} ${pinyonScript.variable} antialiased`}
       >
-        <NavbarProvider>
+        {children}
+        {/* <NavbarProvider>
           <Layout>
             {children}
           </Layout>
-        </NavbarProvider>
+        </NavbarProvider> */}
       </body>
     </html>
   );
